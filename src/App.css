@@ -32,14 +32,25 @@ body {
 
 /* -------------------------------------------------------------------- */
 
-.pick-player > div {
+.pick-player > div,
+.game header,
+.game footer,
+.whos-turn {
   display: flex;
 }
 
 button,
 .silver-x,
-.silver-o {
+.silver-o,
+.space {
   cursor: pointer;
+}
+
+.silver-x,
+.silver-o,
+.restart-btn {
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .new-game button,
@@ -48,7 +59,8 @@ button,
 }
 
 .pick-player > div,
-.pick-player > div > div {
+.pick-player > div > div,
+.space {
   border-radius: 10px;
 }
 
@@ -99,6 +111,14 @@ button.blue-btn:hover {
   background: var(--light-blue-hover);
 }
 
+button.silver-btn {
+  background-color: var(--silver);
+}
+
+button.silver-btn:hover {
+  background-color: var(--silver-hover);
+}
+
 /* -------------------------------------------------------------------- */
 
 .new-game {
@@ -125,12 +145,6 @@ button.blue-btn:hover {
 .pick-player > div > div {
   flex-grow: 1;
   height: 54px;
-}
-
-.silver-x,
-.silver-o {
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .silver-x:hover,
@@ -166,3 +180,50 @@ button.blue-btn:hover {
 }
 
 /* -------------------------------------------------------------------- */
+
+.game header {
+  align-items: flex-start;
+}
+
+.whos-turn,
+.restart-btn {
+  border-radius: 5px;
+}
+
+.whos-turn {
+  width: 96px;
+  height: 40px;
+  margin: 0 74px 0 46px;
+  padding: 9px 15px 13px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--semi-dark-navy);
+  box-shadow: inset 0px -4px 0px #10212a;
+
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.875px;
+}
+
+.restart-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url(./img/icon-restart.svg);
+  box-shadow: inset 0px -4px 0px #6b8997;
+}
+
+.game main {
+  margin: 64px 0 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+}
+
+.space {
+  width: 96px;
+  height: 96px;
+  background: var(--semi-dark-navy);
+  box-shadow: inset 0px -8px 0px #10212a;
+}
