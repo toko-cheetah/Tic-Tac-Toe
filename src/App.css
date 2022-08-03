@@ -60,7 +60,8 @@ button,
 
 .pick-player > div,
 .pick-player > div > div,
-.space {
+.space,
+.game footer > div {
   border-radius: 10px;
 }
 
@@ -190,12 +191,21 @@ button.silver-btn:hover {
   border-radius: 5px;
 }
 
-.whos-turn {
+.whos-turn,
+.game footer {
+  justify-content: space-between;
+}
+
+.whos-turn,
+.space,
+.game footer > div {
   width: 96px;
+}
+
+.whos-turn {
   height: 40px;
   margin: 0 74px 0 46px;
   padding: 9px 15px 13px;
-  justify-content: space-between;
   align-items: center;
   background: var(--semi-dark-navy);
   box-shadow: inset 0px -4px 0px #10212a;
@@ -222,8 +232,37 @@ button.silver-btn:hover {
 }
 
 .space {
-  width: 96px;
   height: 96px;
   background: var(--semi-dark-navy);
   box-shadow: inset 0px -8px 0px #10212a;
+}
+
+.game footer > div {
+  height: 64px;
+  padding: 12px 0;
+  color: var(--dark-navy);
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.75px;
+}
+
+.point {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 1.25px;
+}
+
+#x-player {
+  background-color: var(--light-blue);
+}
+
+#ties {
+  background-color: var(--silver);
+}
+
+#o-player {
+  background-color: var(--light-yellow);
 }

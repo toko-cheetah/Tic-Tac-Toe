@@ -33,19 +33,19 @@ export default function Game() {
       <main>{spaces}</main>
 
       <footer>
-        <div>
+        <div id="x-player">
           <p>X</p>
-          <p>0</p>
+          <p className="point">0</p>
         </div>
 
-        <div>
+        <div id="ties">
           <p>TIES</p>
-          <p>0</p>
+          <p className="point">0</p>
         </div>
 
-        <div>
+        <div id="o-player">
           <p>O</p>
-          <p>0</p>
+          <p className="point">0</p>
         </div>
       </footer>
     </div>
