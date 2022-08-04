@@ -35,8 +35,16 @@ body {
 .pick-player > div,
 .game header,
 .game footer,
-.whos-turn {
+.whos-turn,
+.end-game > div,
+.end-game-heading {
   display: flex;
+}
+
+.whos-turn,
+.end-game > div,
+.end-game-heading {
+  align-items: center;
 }
 
 button,
@@ -61,11 +69,19 @@ button,
 .pick-player > div,
 .pick-player > div > div,
 .space,
-.game footer > div {
+.game footer > div,
+.end-game button {
   border-radius: 10px;
 }
 
 /* -------------------------------------------------------------------- */
+
+h2 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3rem;
+  letter-spacing: 1.5px;
+}
 
 h3,
 button {
@@ -80,7 +96,6 @@ button {
   font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.875px;
-  mix-blend-mode: normal;
   opacity: 0.5;
 }
 
@@ -94,12 +109,21 @@ button {
   padding: 14px 0 22px;
 }
 
-button.yellow-btn {
+button.yellow-btn,
+button.yellow-btn-secondary {
   background: var(--light-yellow);
+}
+
+button.yellow-btn {
   box-shadow: inset 0px -8px 0px #cc8b13;
 }
 
-button.yellow-btn:hover {
+button.yellow-btn-secondary {
+  box-shadow: inset 0px -4px 0px #cc8b13;
+}
+
+button.yellow-btn:hover,
+button.yellow-btn-secondary:hover {
   background: var(--light-yellow-hover);
 }
 
@@ -114,6 +138,7 @@ button.blue-btn:hover {
 
 button.silver-btn {
   background-color: var(--silver);
+  box-shadow: inset 0px -4px 0px #6b8997;
 }
 
 button.silver-btn:hover {
@@ -206,7 +231,6 @@ button.silver-btn:hover {
   height: 40px;
   margin: 0 74px 0 46px;
   padding: 9px 15px 13px;
-  align-items: center;
   background: var(--semi-dark-navy);
   box-shadow: inset 0px -4px 0px #10212a;
 
@@ -220,7 +244,6 @@ button.silver-btn:hover {
   width: 40px;
   height: 40px;
   background-image: url(./img/icon-restart.svg);
-  box-shadow: inset 0px -4px 0px #6b8997;
 }
 
 .game main {
@@ -265,4 +288,48 @@ button.silver-btn:hover {
 
 #o-player {
   background-color: var(--light-yellow);
+}
+
+/* -------------------------------------------------------------------- */
+
+.end-game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.875px;
+}
+
+.end-game > div {
+  height: 228px;
+  margin-top: calc(100% / 2 - 228px / 2);
+  background-color: var(--semi-dark-navy);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.end-game > div > p {
+  margin-bottom: 16px;
+}
+
+.end-game-heading {
+  margin-bottom: 24px;
+}
+
+.end-game-heading img {
+  margin-right: 9px;
+}
+
+.end-game button {
+  padding: 15px 16px 17px;
+}
+
+.end-game button:first-child {
+  margin-right: 16px;
 }
