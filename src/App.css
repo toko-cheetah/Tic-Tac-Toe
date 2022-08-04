@@ -31,6 +31,7 @@ body {
 }
 
 /* -------------------------------------------------------------------- */
+/* repeated */
 
 .pick-player > div,
 .game header,
@@ -42,6 +43,7 @@ body {
 }
 
 .whos-turn,
+.game header,
 .end-game > div,
 .end-game-heading {
   align-items: center;
@@ -75,6 +77,7 @@ button,
 }
 
 /* -------------------------------------------------------------------- */
+/* typography */
 
 h2 {
   font-weight: 700;
@@ -91,22 +94,41 @@ button {
   letter-spacing: 1px;
 }
 
-.new-game p {
-  font-weight: 500;
+.new-game p,
+.whos-turn,
+.end-game p {
   font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.875px;
+}
+
+.new-game p {
+  font-weight: 500;
   opacity: 0.5;
+}
+
+.whos-turn,
+.end-game p {
+  font-weight: 700;
+}
+
+.game footer > div {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.75px;
+}
+
+.point {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 1.25px;
 }
 
 button {
   color: var(--dark-navy);
   border: none;
-}
-
-.new-game button {
-  width: 100%;
-  padding: 14px 0 22px;
 }
 
 button.yellow-btn,
@@ -146,6 +168,7 @@ button.silver-btn:hover {
 }
 
 /* -------------------------------------------------------------------- */
+/* NewGame component */
 
 .new-game {
   text-align: center;
@@ -201,19 +224,22 @@ button.silver-btn:hover {
   background-image: url("./img/icon-o-dark.svg");
 }
 
+.new-game button {
+  width: 100%;
+  padding: 14px 0 22px;
+}
+
 .yellow-btn {
   margin-bottom: 16px;
 }
 
 /* -------------------------------------------------------------------- */
-
-.game header {
-  align-items: flex-start;
-}
+/* Game component */
 
 .whos-turn,
 .restart-btn {
   border-radius: 5px;
+  height: 40px;
 }
 
 .whos-turn,
@@ -228,21 +254,14 @@ button.silver-btn:hover {
 }
 
 .whos-turn {
-  height: 40px;
   margin: 0 74px 0 46px;
   padding: 9px 15px 13px;
   background: var(--semi-dark-navy);
   box-shadow: inset 0px -4px 0px #10212a;
-
-  font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  letter-spacing: 0.875px;
 }
 
 .restart-btn {
   width: 40px;
-  height: 40px;
   background-image: url(./img/icon-restart.svg);
 }
 
@@ -265,17 +284,6 @@ button.silver-btn:hover {
   padding: 12px 0;
   color: var(--dark-navy);
   text-align: center;
-  font-weight: 500;
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  letter-spacing: 0.75px;
-}
-
-.point {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 2.5rem;
-  letter-spacing: 1.25px;
 }
 
 #x-player {
@@ -291,6 +299,7 @@ button.silver-btn:hover {
 }
 
 /* -------------------------------------------------------------------- */
+/* EndGame component */
 
 .end-game {
   position: absolute;
@@ -299,16 +308,11 @@ button.silver-btn:hover {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-
-  font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  letter-spacing: 0.875px;
 }
 
 .end-game > div {
   height: 228px;
-  margin-top: calc(100% / 2 - 228px / 2);
+  margin-top: calc(100vh / 2 - 228px / 2);
   background-color: var(--semi-dark-navy);
   flex-direction: column;
   justify-content: center;
@@ -332,4 +336,116 @@ button.silver-btn:hover {
 
 .end-game button:first-child {
   margin-right: 16px;
+}
+
+/* -------------------------------------------------------------------- */
+/* media query */
+
+@media (min-width: 460px) {
+  body {
+    width: 460px;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* typography */
+
+  h2 {
+    font-size: 4rem;
+    line-height: 5rem;
+    letter-spacing: 2.5px;
+  }
+
+  .new-game button {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: 1.25px;
+  }
+
+  .whos-turn,
+  .end-game p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .game footer > div {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    letter-spacing: 0.875px;
+  }
+
+  .point {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* NewGame component */
+
+  .pick-player {
+    margin: 40px 0;
+  }
+
+  .new-game button {
+    padding: 17px 0 25px;
+  }
+
+  .yellow-btn {
+    margin-bottom: 20px;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Game component */
+
+  .whos-turn,
+  .restart-btn {
+    border-radius: 10px;
+    height: 52px;
+  }
+
+  .space,
+  .game footer > div {
+    border-radius: 15px;
+  }
+
+  .whos-turn,
+  .space,
+  .game footer > div {
+    width: 140px;
+  }
+
+  .whos-turn {
+    margin: 0 108px 0 88px;
+    padding: 13px 30px 19px;
+  }
+
+  .restart-btn {
+    width: 52px;
+  }
+
+  .game main {
+    margin: 20px 0;
+  }
+
+  .space {
+    height: 140px;
+  }
+
+  .game footer > div {
+    height: 72px;
+    padding: 13px 0 11px;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* EndGame component */
+
+  .end-game > div {
+    height: 266px;
+    margin-top: calc(100vh / 2 - 266px / 2);
+  }
+
+  .end-game-heading img {
+    margin-right: 24px;
+  }
 }
