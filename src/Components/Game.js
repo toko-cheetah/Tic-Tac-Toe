@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import logo from "../img/logo.svg";
-import xSilverSmall from "../img/icon-x-silver-small.svg";
-import oSilverSmall from "../img/icon-o-silver-small.svg";
+import xSilver from "../img/icon-x-silver.svg";
+import oSilver from "../img/icon-o-silver.svg";
 
 export default function Game() {
   const [spaces, setSpaces] = useState([]);
@@ -23,7 +23,7 @@ export default function Game() {
         <img src={logo} alt="XO logo" />
 
         <div className="whos-turn">
-          <img src={xSilverSmall} alt="Silver X or O icon small" />
+          <img src={xSilver} alt="Silver X or O icon small" />
           <p>TURN</p>
         </div>
 
