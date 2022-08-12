@@ -284,6 +284,31 @@ button.silver-btn:hover {
   box-shadow: inset 0px -8px 0px #10212a;
 }
 
+.x-filled,
+.o-filled,
+.hover-x:hover,
+.hover-o:hover {
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.x-filled {
+  background-image: url(./img/icon-x.svg);
+}
+
+.o-filled {
+  background-image: url(./img/icon-o.svg);
+}
+
+.hover-x:hover {
+  background-image: url(./img/icon-x-outline.svg);
+}
+
+.hover-o:hover {
+  background-image: url(./img/icon-o-outline.svg);
+}
+
 .game footer > div {
   height: 64px;
   padding: 12px 0;
@@ -442,6 +467,13 @@ button.silver-btn:hover {
 
   .space {
     height: 140px;
+  }
+
+  .x-filled,
+  .o-filled,
+  .hover-x:hover,
+  .hover-o:hover {
+    background-size: 64px;
   }
 
   .game footer > div {
