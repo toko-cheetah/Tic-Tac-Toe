@@ -6,13 +6,15 @@ export default function EndGame({
   vsCpu,
   winner,
   tied,
+  restart,
+  cancelRestart,
   nextRound,
   quit,
 }) {
   return (
     <div className="end-game">
       <div>
-        {!tied && (
+        {!restart && !tied && (
           <p>
             {(player1sMarkX && winner === "x") ||
             (!player1sMarkX && winner === "o")
@@ -26,16 +28,30 @@ export default function EndGame({
         )}
 
         <div className="end-game-heading">
-          {!tied && <img src={winner === "x" ? xIcon : oIcon} alt="X icon" />}
-          <h2>{tied ? "ROUND TIED" : "TAKES THE ROUND"}</h2>
+          {!restart && !tied && (
+            <img src={winner === "x" ? xIcon : oIcon} alt="X icon" />
+          )}
+          <h2>
+            {restart
+              ? "RESTART GAME?"
+              : tied
+              ? "ROUND TIED"
+              : "TAKES THE ROUND"}
+          </h2>
         </div>
 
         <div>
-          <button className="silver-btn" onClick={quit}>
-            QUIT
+          <button
+            className="silver-btn"
+            onClick={restart ? cancelRestart : quit}
+          >
+            {restart ? "NO, CANCEL" : "QUIT"}
           </button>
-          <button className="yellow-btn-secondary" onClick={nextRound}>
-            NEXT ROUND
+          <button
+            className="yellow-btn-secondary"
+            onClick={restart ? quit : nextRound}
+          >
+            {restart ? "YES, RESTART" : "NEXT ROUND"}
           </button>
         </div>
       </div>

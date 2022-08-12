@@ -8,6 +8,7 @@ import { defaultGrid, defaultScore } from "./helper";
 export default function App() {
   const [newGame, setNewGame] = useState(true);
   const [endGame, setEndGame] = useState(false);
+  const [restart, setRestart] = useState(false);
 
   const [player1sMarkX, setPlayer1sMarkX] = useState(true);
   const [vsCpu, setVsCpu] = useState(false);
@@ -39,13 +40,15 @@ export default function App() {
     findOutWinner("space3", "space6", "space9");
     findOutWinner("space1", "space5", "space9");
     findOutWinner("space3", "space5", "space7");
+
     winner &&
       setScore((prev) => ({
         ...prev,
         [winner]: prev[winner] + 1,
       }));
+
     ifTied();
-  }, [grid, winner, tied]);
+  }, [grid, winner]);
 
   function findOutWinner(spaceNum1, spaceNum2, spaceNum3) {
     return (
@@ -58,9 +61,7 @@ export default function App() {
 
   function ifTied() {
     let count = 0;
-
     gridKeys.map((key) => grid[key].filled && count++);
-
     return (
       count === 9 &&
       !winner &&
@@ -106,6 +107,16 @@ export default function App() {
     );
   }
 
+  function restartGame() {
+    setEndGame(true);
+    setRestart(true);
+  }
+
+  function cancelRestart() {
+    setEndGame(false);
+    setRestart(false);
+  }
+
   function nextRound() {
     setGrid(defaultGrid);
     setWinner("");
@@ -116,6 +127,7 @@ export default function App() {
   function quit() {
     setNewGame(true);
     setEndGame(false);
+    setRestart(false);
     setPlayer1sMarkX(true);
     setVsCpu(false);
     setXTurn(true);
@@ -136,6 +148,7 @@ export default function App() {
           selectSpace={selectSpace}
           grid={grid}
           score={score}
+          restartGame={restartGame}
         />
       )}
       {endGame && (
@@ -144,6 +157,8 @@ export default function App() {
           vsCpu={vsCpu}
           winner={winner}
           tied={tied}
+          restart={restart}
+          cancelRestart={cancelRestart}
           nextRound={nextRound}
           quit={quit}
         />

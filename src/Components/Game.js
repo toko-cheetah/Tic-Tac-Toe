@@ -4,7 +4,14 @@ import logo from "../img/logo.svg";
 import xSilver from "../img/icon-x-silver.svg";
 import oSilver from "../img/icon-o-silver.svg";
 
-export default function Game({ whosX, xTurn, selectSpace, grid, score }) {
+export default function Game({
+  whosX,
+  xTurn,
+  selectSpace,
+  grid,
+  score,
+  restartGame,
+}) {
   const [spaces, setSpaces] = useState([]);
 
   useEffect(() => {
@@ -45,7 +52,10 @@ export default function Game({ whosX, xTurn, selectSpace, grid, score }) {
           <p>TURN</p>
         </div>
 
-        <button className="restart-btn silver-btn"></button>
+        <button
+          className="restart-btn silver-btn"
+          onClick={restartGame}
+        ></button>
       </header>
 
       <main>{spaces}</main>
