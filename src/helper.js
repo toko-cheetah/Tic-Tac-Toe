@@ -36,3 +36,9 @@ export const defaultGrid = {
     mark: "",
   },
 };
+
+export const defaultScore = {
+  x: 0,
+  ties: 0,
+  o: 0,
+};

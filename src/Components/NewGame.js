@@ -22,7 +22,12 @@ export default function NewGame({ selectMark, selectRival }) {
       </div>
 
       <div>
-        <button id="vs-cpu" className="yellow-btn" onClick={selectRival}>
+        <button
+          id="vs-cpu"
+          className="yellow-btn"
+          onClick={selectRival}
+          disabled
+        >
           NEW GAME (VS CPU)
         </button>
         <button id="vs-player" className="blue-btn" onClick={selectRival}>

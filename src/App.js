@@ -3,7 +3,7 @@ import "./App.css";
 import NewGame from "./Components/NewGame";
 import Game from "./Components/Game";
 import EndGame from "./Components/EndGame";
-import { defaultGrid } from "./helper";
+import { defaultGrid, defaultScore } from "./helper";
 
 export default function App() {
   const [newGame, setNewGame] = useState(true);
@@ -15,11 +15,8 @@ export default function App() {
   const [xTurn, setXTurn] = useState(true);
   const [grid, setGrid] = useState(defaultGrid);
   const [winner, setWinner] = useState("");
-  const [score, setScore] = useState({
-    x: 0,
-    ties: 0,
-    o: 0,
-  });
+  const [tied, setTied] = useState(false);
+  const [score, setScore] = useState(defaultScore);
 
   const players = {
     player1: vsCpu ? "YOU" : "P1",
@@ -29,10 +26,9 @@ export default function App() {
     markX: player1sMarkX ? players.player1 : players.player2,
     markO: player1sMarkX ? players.player2 : players.player1,
   };
+  const gridKeys = Object.keys(grid);
 
   const getEl = (id) => document.getElementById(id);
-
-  console.log(endGame, winner);
 
   useEffect(() => {
     findOutWinner("space1", "space2", "space3");
@@ -43,7 +39,13 @@ export default function App() {
     findOutWinner("space3", "space6", "space9");
     findOutWinner("space1", "space5", "space9");
     findOutWinner("space3", "space5", "space7");
-  }, [xTurn, grid]);
+    winner &&
+      setScore((prev) => ({
+        ...prev,
+        [winner]: prev[winner] + 1,
+      }));
+    ifTied();
+  }, [grid, winner, tied]);
 
   function findOutWinner(spaceNum1, spaceNum2, spaceNum3) {
     return (
@@ -51,6 +53,23 @@ export default function App() {
       grid[spaceNum1].mark === grid[spaceNum2].mark &&
       grid[spaceNum1].mark === grid[spaceNum3].mark &&
       (setWinner(grid[spaceNum1].mark), setEndGame(true))
+    );
+  }
+
+  function ifTied() {
+    let count = 0;
+
+    gridKeys.map((key) => grid[key].filled && count++);
+
+    return (
+      count === 9 &&
+      !winner &&
+      (setTied(true),
+      setScore((prev) => ({
+        ...prev,
+        ties: prev.ties + 1,
+      })),
+      setEndGame(true))
     );
   }
 
@@ -87,6 +106,25 @@ export default function App() {
     );
   }
 
+  function nextRound() {
+    setGrid(defaultGrid);
+    setWinner("");
+    setTied(false);
+    setEndGame(false);
+  }
+
+  function quit() {
+    setNewGame(true);
+    setEndGame(false);
+    setPlayer1sMarkX(true);
+    setVsCpu(false);
+    setXTurn(true);
+    setGrid(defaultGrid);
+    setWinner("");
+    setTied(false);
+    setScore(defaultScore);
+  }
+
   return (
     <div className="App">
       {newGame ? (
@@ -100,7 +138,16 @@ export default function App() {
           score={score}
         />
       )}
-      {endGame && <EndGame />}
+      {endGame && (
+        <EndGame
+          player1sMarkX={player1sMarkX}
+          vsCpu={vsCpu}
+          winner={winner}
+          tied={tied}
+          nextRound={nextRound}
+          quit={quit}
+        />
+      )}
     </div>
   );
 }
