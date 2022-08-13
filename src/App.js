@@ -14,6 +14,7 @@ export default function App() {
   const [vsCpu, setVsCpu] = useState(false);
 
   const [xTurn, setXTurn] = useState(true);
+  const [xStartsNextRound, setXStartsNextRound] = useState(true);
   const [grid, setGrid] = useState(defaultGrid);
   const [winner, setWinner] = useState("");
   const [tied, setTied] = useState(false);
@@ -118,6 +119,8 @@ export default function App() {
   }
 
   function nextRound() {
+    setXStartsNextRound((prev) => !prev);
+    setXTurn(!xStartsNextRound);
     setGrid(defaultGrid);
     setWinner("");
     setTied(false);
@@ -131,6 +134,7 @@ export default function App() {
     setPlayer1sMarkX(true);
     setVsCpu(false);
     setXTurn(true);
+    setXStartsNextRound(true);
     setGrid(defaultGrid);
     setWinner("");
     setTied(false);
