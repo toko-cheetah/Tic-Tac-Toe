@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Tic-Tac-Toe/static/css/main.a2d63e09.css",
+    "main.js": "/Tic-Tac-Toe/static/js/main.a1af05e3.js",
+    "static/media/icon-x-dark.svg": "/Tic-Tac-Toe/static/media/icon-x-dark.f79eab75ed3bb041fb9b.svg",
+    "static/media/icon-x-silver.svg": "/Tic-Tac-Toe/static/media/icon-x-silver.6a685d5dd94a445f2311fde129b9a220.svg",
+    "static/media/icon-x-outline.svg": "/Tic-Tac-Toe/static/media/icon-x-outline.a591bdf22fd3be0addcb.svg",
+    "static/media/logo.svg": "/Tic-Tac-Toe/static/media/logo.6a3d7c7d71604d60499698d758e297b4.svg",
+    "static/media/icon-o-dark.svg": "/Tic-Tac-Toe/static/media/icon-o-dark.e7425c2e2a8a566a9b03.svg",
+    "static/media/icon-o-silver.svg": "/Tic-Tac-Toe/static/media/icon-o-silver.d3d52b61c07ee5efbf23aa29efba9229.svg",
+    "static/media/icon-restart.svg": "/Tic-Tac-Toe/static/media/icon-restart.5233068679491c1d7f0f.svg",
+    "index.html": "/Tic-Tac-Toe/index.html",
+    "static/media/icon-x.svg": "/Tic-Tac-Toe/static/media/icon-x.0b42b1fa90bcc26b3e3f3e23513df1aa.svg",
+    "static/media/icon-o-outline.svg": "/Tic-Tac-Toe/static/media/icon-o-outline.44ebb2196ec7043f1e17.svg",
+    "static/media/icon-o.svg": "/Tic-Tac-Toe/static/media/icon-o.7608cc08ec6b0a3d77ec15ebb57db3b2.svg",
+    "main.a2d63e09.css.map": "/Tic-Tac-Toe/static/css/main.a2d63e09.css.map",
+    "main.a1af05e3.js.map": "/Tic-Tac-Toe/static/js/main.a1af05e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2d63e09.css",
+    "static/js/main.a1af05e3.js"
+  ]
+}
